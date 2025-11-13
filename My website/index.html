@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Website - Beranda</title>
+  <meta name="description" content="Website modern dengan desain yang menarik" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #2d2d2d;
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 20px;
+    }
+
+    .logo {
+      height: 50px;
+      width: 50px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 3px 10px rgba(30, 58, 138, 0.25);
+    }
+
+    .nav {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: #1e3a8a;
+      transition: width 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: #1e3a8a;
+      background: #eff6ff;
+    }
+
+    .nav a:hover::after {
+      width: 80%;
+    }
+
+    /* Main Content */
+    main {
+      padding: 3rem 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: white;
+      border-radius: 16px;
+      padding: 4rem 3rem;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      margin-bottom: 3rem;
+      animation: fadeInUp 0.8s ease;
+      border-top: 4px solid #1e3a8a;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #6b7280;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+      background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
+    }
+
+    .btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* Features Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .features article {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #f3f4f6;
+    }
+
+    .features article::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #1e3a8a 0%, #1e40af 100%);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .features article:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      border-color: #dbeafe;
+    }
+
+    .features article:hover::before {
+      transform: scaleX(1);
+    }
+
+    .features h2 {
+      color: #1f2937;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .features p {
+      color: #6b7280;
+      line-height: 1.8;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+    }
+
+    /* Stats Section */
+    .stats {
+      background: white;
+      border-radius: 16px;
+      padding: 3rem;
+      margin: 3rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      animation: fadeInUp 1.2s ease 0.4s both;
+      border-top: 4px solid #1e3a8a;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+      background: #eff6ff;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      color: #6b7280;
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      margin-top: 4rem;
+      padding: 2rem 0;
+      text-align: center;
+      border-top: 1px solid #f3f4f6;
+    }
+
+    footer p {
+      color: #6b7280;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .nav {
+        gap: 1rem;
+      }
+
+      header .container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Scroll animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">MW</div>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="#features">Fitur</a></li>
+          <li><a href="#stats">Statistik</a></li>
+          <li><a href="about.html">Tentang</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <h1>Selamat Datang di My Website</h1>
+      <p>Platform modern untuk pembelajaran dan pengembangan web. Kami menyediakan berbagai fitur dan tools yang akan membantu Anda mencapai tujuan digital Anda.</p>
+      <a href="about.html" class="btn">Pelajari Lebih Lanjut</a>
+    </section>
+
+    <section class="stats" id="stats">
+      <div class="stat-item fade-in">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">Pengguna Aktif</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Proyek Selesai</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Kepuasan Klien</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Dukungan</div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <article>
+        <div class="feature-icon">🚀</div>
+        <h2>Performa Tinggi</h2>
+        <p>Website yang cepat dan responsif dengan teknologi terkini. Optimasi maksimal untuk pengalaman pengguna terbaik.</p>
+      </article>
+      <article>
+        <div class="feature-icon">🎨</div>
+        <h2>Desain Modern</h2>
+        <p>Tampilan yang menarik dan intuitif dengan pendekatan desain user-centered. UI/UX yang memukau di semua perangkat.</p>
+      </article>
+      <article>
+        <div class="feature-icon">🔒</div>
+        <h2>Keamanan Terjamin</h2>
+        <p>Sistem keamanan berlapis untuk melindungi data Anda. Enkripsi end-to-end dan monitoring 24/7.</p>
+      </article>
+      <article>
+        <div class="feature-icon">📱</div>
+        <h2>Responsif</h2>
+        <p>Tampilan sempurna di berbagai ukuran layar. Dari smartphone hingga desktop, pengalaman yang konsisten.</p>
+      </article>
+      <article>
+        <div class="feature-icon">⚡</div>
+        <h2>Teknologi Terbaru</h2>
+        <p>Menggunakan framework dan tools modern untuk hasil terbaik. Selalu update dengan trend teknologi web.</p>
+      </article>
+      <article>
+        <div class="feature-icon">💬</div>
+        <h2>Dukungan 24/7</h2>
+        <p>Tim support kami siap membantu kapan saja. Respon cepat dan solusi yang efektif untuk setiap masalah.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 My Website. All rights reserved. Dibuat dengan ❤️ untuk Anda.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Scroll animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Counter animation
+    const counters = document.querySelectorAll('.stat-number');
+    const animateCounter = (counter) => {
+      const target = counter.textContent.replace(/\D/g, '');
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          counter.textContent = Math.floor(current) + (counter.textContent.includes('%') ? '%' : '+');
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target + (counter.textContent.includes('%') ? '%' : '+');
+        }
+      };
+      updateCounter();
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target.querySelector('.stat-number');
+          if (counter && !counter.classList.contains('animated')) {
+            counter.classList.add('animated');
+            animateCounter(counter);
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-item').forEach(item => statsObserver.observe(item));
+  </script>
+</body>
+</html>
